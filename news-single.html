@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from rabonadev.com/league/news-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Dec 2016 13:51:26 GMT -->
+<head>
+	<meta charset="UTF-8">
+	<title>Mobilis CAN 2017</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1  maximum-scale=1 user-scalable=no">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="HandheldFriendly" content="True">
+	
+	<link rel="shortcut icon" href="img/favicon.png">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/materialize.min.css">
+	<link rel="stylesheet" href="css/slick.css">
+	<link rel="stylesheet" href="css/slick-theme.css">
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/owl.theme.css">
+	<link rel="stylesheet" href="css/owl.transitions.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	    <script type="text/javascript" src="js/jquery.min.js"></script>
+	    <script type="text/javascript" src="js/geturi.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var news_id = decodeURI(getUrlVars()["news_id"]);
+        var news_titre = decodeURI(getUrlVars()["news_titre"]);
+        var news_article = decodeURI(getUrlVars()["news_article"]);
+        var news_thumb = decodeURI(getUrlVars()["news_thumb"]);
+        $("#news_id").text(news_id);
+        $("#news_titre").text(news_titre);
+        $("#news_article").text(news_article);
+        $("#news_thumb").text(news_thumb);
+        $("#update").click(function() {
+            var news_id = $("#news_id").val();
+            var news_titre = $("#news_titre").val();
+            var news_article = $("#news_article").val();
+            var news_thumb = $("#news_thumb").val();
+            var dataString = "id=" + id + "&title=" + title + "&duration=" + duration + "&price=" + price + "&update=";
+            $.ajax({
+                type: "POST",
+                url: "http://localhost/test/update.php",
+                data: dataString,
+                crossDomain: true,
+                cache: false,
+                beforeSend: function() {
+                    $("#update").val('Connecting...');
+                },
+                success: function(data) {
+                    if (data == "success") {
+                        alert("Updated");
+                        $("#update").val("Update");
+                    } else if (data == "error") {
+                        alert("error");
+                    }
+                }
+            });
+
+        });
+        $("#delete").click(function() {
+            var id = $("#id").val();
+            var dataString = "id=" + id + "&delete=";
+            $.ajax({
+                type: "GET",
+                url: "http://localhost/test/delete.php",
+                data: dataString,
+                crossDomain: true,
+                cache: false,
+                beforeSend: function() {
+                    $("#delete").val('Connecting...');
+                },
+                success: function(data) {
+                    if (data == "success") {
+                        alert("Deleted");
+                        $("#delete").val("Delete");
+                    } else if (data == "error") {
+                        alert("error");
+                    }
+                }
+            });
+
+        });
+    });
+    </script>
+
+
+</head>
+<body>
+
+	<!-- navbar -->
+	<div class="navbar">
+		<div class="container">
+			<div class="panel-control-left">
+				<a href="#" data-activates="slide-out-left" class="sidenav-control-left"><i class="fa fa-bars"></i></a>
+			</div>
+			<div class="site-title">
+				<a class="logo" href="index.html">
+				<h1>Lkhadra Dialna</h1></a>
+			</div>
+			<div class="panel-control-right">
+				<a href="news.html"><i class="fa fa-newspaper-o"></i></a>
+			</div>
+		</div>
+	</div>
+	<!-- end navbar -->
+
+	<!-- panel control left -->
+	<div class="panel-control-left">
+		<ul class="side-nav collapsible" data-collapsible="accordion" id="slide-out-left">
+			<li>
+				<a href="index.html"><i class="fa fa-home"></i>Accueil</a>
+			</li>
+			<li>
+				<a href="standings.html"><i class="fa fa-table"></i>Classement EN</a>
+			</li>
+			<li>
+				<a href="schedule.html"><i class="fa fa-calendar"></i>Calendrier</a>
+			</li>
+			<li>
+				<a href="result.html"><i class="fa fa-calendar-check-o"></i>Resultats</a>
+			</li>
+			<li>
+				<div class="collapsible-header">
+					<i class="fa fa-shopping-cart"></i>Shop <span><i class="fa fa-chevron-right"></i></span>
+				</div>
+				<div class="collapsible-body">
+					<ul class="side-nav-panel">
+						<li>
+							<a href="shop.html">Sim ELKHADRA</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<!-- end panel control left -->
+	
+	<!-- blog single-->
+	<div class="blog-single app-pages app-section">
+		<div class="container">
+			<div class="entry">
+				<div class="user-date">
+					<ul>
+						<li><a href="#"><i class="fa fa-user"></i>Mobilis</a></li>
+						<li><a href="#"><i class="fa fa-clock-o"></i> 2017-06-07</a></li>
+					</ul>
+				</div>
+				<h5 id="news_titre"> </h5> 
+
+				<p id="news_article"></p>
+				<div class="share">
+					<ul>
+						<li><h6>Share via :</h6></li>
+						<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+						<li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end blog single -->
+	
+	<!-- footer -->
+	<footer>
+		<div class="container">
+			<div class="ft-bottom">
+				<span>ATM Mobilis | Copyright © 2017 All Rights Reserved</span>
+			</div>
+		</div>
+	</footer>
+	<!-- end footer -->
+	
+	<!-- script -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/materialize.min.js"></script>
+	<script src="js/slick.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/custom.js"></script>
+
+</body>
+
+<!-- Mirrored from rabonadev.com/league/news-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Dec 2016 13:51:27 GMT -->
+</html>

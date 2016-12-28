@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mobilis CAN 2017</title>
+	<meta content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no" name="viewport">
+	<meta content="yes" name="mobile-web-app-capable">
+	<meta content="True" name="HandheldFriendly">
+	<link href="img/favicon.png" rel="shortcut icon">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/materialize.min.css" rel="stylesheet">
+	<link href="css/slick.css" rel="stylesheet">
+	<link href="css/slick-theme.css" rel="stylesheet">
+	<link href="css/owl.carousel.css" rel="stylesheet">
+	<link href="css/owl.theme.css" rel="stylesheet">
+	<link href="css/owl.transitions.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<script src="js/jquery.min.js">
+	</script> 
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var url = "http://localhost/MobilisCan2017/code/json.php";
+        $.getJSON(url, function(result) {
+            console.log(result);
+            $.each(result, function(i, field) {
+                var news_id = field.news_id;
+                var news_titre = field.news_titre;
+                var news_article = field.news_article;
+                var news_thumb = field.news_thumb;
+               
+
+                 $("#listview").append("<div class='col s12'><div class='entry'><img src='" + news_thumb + "'><div class='content'><h6><a href='news-single.html?news_id=" + news_id + "&news_titre=" + news_titre + "&news_article=" + news_article + "&news_thumb=" + news_thumb + "''>" + news_titre + "</a></h6><span>2 Dec 2016</span><p>" + news_article + "</p></div></div></div>");
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+	<div class="navbar">
+		<div class="container">
+			<div class="panel-control-left">
+				<a class="sidenav-control-left" data-activates="slide-out-left" href="#"><i class="fa fa-bars"></i></a>
+			</div>
+			<div class="site-title">
+				<a class="logo" href="index.html">
+				<h1>Lkhadra Dialna</h1></a>
+			</div>
+			<div class="panel-control-right">
+				<a href="news.html"><i class="fa fa-newspaper-o"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="panel-control-left">
+		<ul class="side-nav collapsible" data-collapsible="accordion" id="slide-out-left">
+			<li>
+				<a href="index.html"><i class="fa fa-home"></i>Accueil</a>
+			</li>
+			<li>
+				<a href="standings.html"><i class="fa fa-table"></i>Classement EN</a>
+			</li>
+			<li>
+				<a href="schedule.html"><i class="fa fa-calendar"></i>Calendrier</a>
+			</li>
+			<li>
+				<a href="result.html"><i class="fa fa-calendar-check-o"></i>Resultats</a>
+			</li>
+			<li>
+				<div class="collapsible-header">
+					<i class="fa fa-shopping-cart"></i>Shop <span><i class="fa fa-chevron-right"></i></span>
+				</div>
+				<div class="collapsible-body">
+					<ul class="side-nav-panel">
+						<li>
+							<a href="shop.html">Sim ELKHADRA</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="slider-slick app-pages">
+		<div class="slider-entry">
+			<img alt="" src="img/slider1.png">
+			<div class="overlay"></div>
+			<div class="caption">
+				<div class="container">
+					<h2>CLASSEMENT FIFA : L’ALGÉRIE SE MAINTIENT À LA 38E PLACE</h2>
+					<p></p><a class="button" href="#">En savoir plus</a>
+				</div>	
+			</div>
+		</div>
+		<div class="slider-entry">
+			<div class="overlay"></div><img alt="" src="img/slider2.png">
+			<div class="caption">
+				<div class="container">
+					<h2>M. LEEKENS DÉVOILE UNE LISTE ÉLARGIE (ACTUALISÉ)</h2>
+					<p></p><a class="button" href="#">En savoir plus</a>
+				</div>
+			</div>
+		</div>
+		<div class="slider-entry">
+			<div class="overlay"></div><img alt="" src="img/slider3.png">
+			<div class="caption">
+				<div class="container">
+					<h2>ALGÉRIE – MAURITANIE : ACCRÉDITATIONS DES JOURNALISTES</h2>
+					<p></p><a class="button" href="#">En savoir plus</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="latest-result app-section app-section-top">
+		<div class="container">
+			<div class="app-title">
+				<h4>Prochain Match</h4>
+				<div class="line"></div>
+			</div>
+			<ul class="score">
+				<li><img alt="" src="img/algeria.png"></li>
+				<li>-</li>
+				<li>:</li>
+				<li>-</li>
+				<li><img alt="" src="img/zimbabwe.png"></li>
+			</ul>
+			<ul class="club-title">
+				<li>Algerie</li>
+				<li>VS</li>
+				<li>Zimbabwe</li>
+			</ul>
+			<ul class="stadium">
+				<li>Dolor Stadium</li>
+			</ul>
+			<ul class="date">
+				<li>Dim 15 Jan 2017 17:00</li>
+			</ul>
+		</div>
+	</div>
+	<div class="latest-match app-section app-bg-dark">
+		<div class="container">
+			<div class="app-title">
+				<h4>Dernier Match</h4>
+				<div class="line"></div>
+			</div>
+			<ul class="score">
+				<li><img alt="" src="img/algeria.png"></li>
+				<li>:</li>
+				<li><img alt="" src="img/zimbabwe.png"></li>
+			</ul>
+			<ul class="club-title">
+				<li>Algerie</li>
+				<li>VS</li>
+				<li>Zimbabwe</li>
+			</ul>
+			<ul class="stadium">
+				<li>Dolor Stadium</li>
+			</ul>
+			<ul class="date">
+				<li>Dim 15 Jan 2017 17:00</li>
+			</ul>
+		</div>
+	</div>
+	<div class="latest-news app-section">
+		<div class="container">
+			<div class="app-title">
+				<h4>Dernières informations</h4>
+				<div class="line"></div>
+			</div>
+			<div class="row" id="listview">
+				
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="container">
+			<div class="ft-bottom">
+				<span>ATM Mobilis | Copyright © 2017 All Rights Reserved</span>
+			</div>
+		</div>
+	</footer>
+
+	
+	<script src="js/materialize.min.js">
+	</script> 
+	<script src="js/slick.min.js">
+	</script> 
+	<script src="js/owl.carousel.min.js">
+	</script> 
+	<script src="js/custom.js">
+	</script>
+
+</body>
+</html>
