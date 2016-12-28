@@ -15,8 +15,12 @@
 	<link href="css/owl.theme.css" rel="stylesheet">
 	<link href="css/owl.transitions.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
-	<script src="js/jquery.min.js">
-	</script> 
+	<script src="js/jquery.min.js"></script>
+	<script>
+function myFunction() {
+    location.reload();
+}
+</script> 
     <script type="text/javascript">
     $(document).ready(function() {
         var url = "http://bgc-dz.com/MobilisCan2017/json.php";
@@ -161,7 +165,7 @@
 	<div class="latest-news app-section">
 		<div class="container">
 			<div class="app-title">
-				<h4>Dernières informations</h4>
+				<h4>Dernières informations <a onclick="myFunction()">reload</a></h4>
 				<div class="line"></div>
 			</div>
 			<div class="row" id="listview">
